@@ -3,10 +3,11 @@
 namespace Farmaceutic\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Farmaceutic\muncipio;
+
 use Session;
 use Redirect;
 use Farmaceutic\Http\Requests;
+use Farmaceutic\muncipio;
 use Farmaceutic\Http\Requests\MunicipioCreateRequest;
 class municipiocontroller extends Controller
 {

@@ -39,8 +39,8 @@
                                     </tfoot>
                                         @foreach($municipios as $municipio)
                                         <tbody>
-                                        <td>{{$municipio->id_municipio}}</td>
-                                       <td>{{$municipio->nombre}}</td>
+                                        <td>{{$municipios->id_municipio}}</td>
+                                       <td>{{$municipios->nombre}}</td>
                                        <td>
                                         {!!link_to_route('municipio.edit', $title = 'Editar', $parameters = $municipio->id_municipio, $attributes = ['class'=>'btn btn-success btn-flat btn-addon m-b-10 m-l-5'])!!} 
                                     

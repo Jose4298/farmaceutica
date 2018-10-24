@@ -6,20 +6,28 @@ use Illuminate\Http\Request;
 
 use Farmaceutic\Http\Requests;
 use Farmaceutic\producto;
+use Farmaceutic\seccion;
 use Session;
 use Redirect;
 use Farmaceutic\Http\Requests\ProductoRequestCreate;
 class productocontroller extends Controller
 {
     public function index()
+
     {
+       
         $productos = producto::all();
         return view('producto.index',compact('productos'));
     }
     
     public function create()
-    {
-        return view("producto.create");
+    {  
+        
+        $secciones = seccion::all();
+        $productos = producto::all();
+        return view("producto.create",compact('puestos','secciones'));
+        
+    
     }
     // no se te olvide crear el request y colocarlo en true
     public function store(ProductoRequestCreate $request)
