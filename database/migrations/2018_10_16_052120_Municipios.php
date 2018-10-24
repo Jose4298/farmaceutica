@@ -15,6 +15,9 @@ class Municipios extends Migration
             $table->integer('id_estado')->unsigned();
             $table->foreign('id_estado')->references('id_estado')->on('estados')->onDelete('cascade');
             $table->timestamps();
+                $table->rememberToken();   
+                $table->softDeletes();
+           
         });
     }
 

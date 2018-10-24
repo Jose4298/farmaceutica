@@ -18,3 +18,5 @@ Route::get('admin','FrontController@admin');
 
 Route::resource('usuario','UsuarioController');
 Route::resource('estado','estadocontroller');
+Route::resource('municipio','municipiocontroller');
+Route::resource('producto','productocontroller');

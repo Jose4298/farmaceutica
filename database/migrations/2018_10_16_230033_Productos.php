@@ -22,6 +22,8 @@ class Productos extends Migration
             $table->integer('id_seccion')->unsigned();
             $table->foreign('id_seccion')->references('id_seccion')->on('secciones')->onDelete('cascade');
             $table->timestamps();
+                $table->rememberToken();   
+                $table->softDeletes();
         });
     }
 
