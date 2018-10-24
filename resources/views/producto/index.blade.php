@@ -26,21 +26,30 @@
                                     <thead>
                                         <tr>
                                                 <th>#</th>
-                                                <th>producto</th>
-                                                <th>operaciones</th>  
+                                                <th>Nombre</th>
+                                                <th>Precio</th>
+                                                <th>Maximo en bodega</th>
+                                                <th>Minimo en bodega</th> 
+                                                <th>Producto medio de bodega</th>
+                                                <th>seccion</th>  
                                         </tr>    
                                     </thead>
                                     <tfoot>
                                             <tr>
-                                                <th>#</th>
-                                                <th>Productos</th>
-                                                <th>seccion</th>
+                                            <th>#</th>
+                                                <th>Nombre</th>
+                                                <th>Precio</th>
+                                                <th>Maximo en bodega</th>
+                                                <th>Minimo en bodega</th> 
+                                                <th>Producto medio de bodega</th>
+                                                <th>seccion</th>  
                                               
                                             </tr>
                                     </tfoot>
                                         @foreach($productos as $producto)
                                        <tbody>
                                        <td>{{$producto->id_producto}}</td>
+                                       <td>{{$producto->nombre}}</td>
                                        <td>{{$producto->precio}}</td>
                                        <td>{{$producto->max_bodega}}</td>
                                        <td>{{$producto->min_bodega}}</td>

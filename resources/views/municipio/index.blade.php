@@ -15,7 +15,7 @@
 <div class="card ">
                             <div class="card-title">
                                 <h4 aling-text='center'>Municipio Registrados. </h4>
-                                <td><a class="btn btn-dark btn-outline m-b-10 m-l-5" href="{{route('estado.create')}}"   role="button"> + Agregar un nuevo municipio</a></td>
+                                <td><a class="btn btn-dark btn-outline m-b-10 m-l-5" href="{{route('municipio.create')}}"   role="button"> + Agregar un nuevo municipio</a></td>
                                
                                
                             </div>
@@ -39,8 +39,8 @@
                                     </tfoot>
                                         @foreach($municipios as $municipio)
                                         <tbody>
-                                        <td>{{$municipios->id_municipio}}</td>
-                                       <td>{{$municipios->nombre}}</td>
+                                        <td>{{$municipio->id_municipio}}</td>
+                                       <td>{{$municipio->nombre}}</td>
                                        <td>
                                         {!!link_to_route('municipio.edit', $title = 'Editar', $parameters = $municipio->id_municipio, $attributes = ['class'=>'btn btn-success btn-flat btn-addon m-b-10 m-l-5'])!!} 
                                     

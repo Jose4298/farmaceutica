@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use Session;
 use Redirect;
 use Farmaceutic\Http\Requests;
-use Farmaceutic\muncipio;
+use Farmaceutic\municipio;
+use Farmaceutic\estado;
 use Farmaceutic\Http\Requests\MunicipioCreateRequest;
 class municipiocontroller extends Controller
 {
@@ -19,7 +20,9 @@ class municipiocontroller extends Controller
     
     public function create()
     {
-        return view("municipio.create");
+        $estados = estado::all();
+        $municipios = municipio::all();
+        return view("municipio.create",compact('estados','municipios'));
     }
     // no se te olvide crear el request y colocarlo en true
     public function store(MunicipioCreateRequest $request)
@@ -28,6 +31,7 @@ class municipiocontroller extends Controller
       municipio::create([
         'id_municipio' => $request['id_municipio'],
         'nombre' => $request['nombre'], 
+        'id_estado' => $request['id_estado'], 
          ]);
         Session::flash('message','Municipio editado correctamente');
         return  Redirect::to('/municipio');
