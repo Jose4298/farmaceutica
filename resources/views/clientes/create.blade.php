@@ -1,166 +1,183 @@
 @extends('layouts.principal')
 @section('content')
 
-<div class="box-content">
-    <h4 class="page-header">Registration form</h4>
-    <form class="form-horizontal" role="form">
-        <div class="form-group">
-            <label class="col-sm-2 control-label">First name</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" placeholder="First name" data-toggle="tooltip" data-placement="bottom" title="Tooltip for name">
+{{csrf_field()}}
+
+{!!Form::open(['route'=>'cliente.store', 'method'=>'POST'])!!}
+
+
+
+<div class="row justify-content-center">
+     <div class="col-lg-6">
+        <div class="card  ">
+        <div class="card-body ">
+        <h4 class="page-header">Ingresar un nuevo cliente.</h4>
+        <form class="form p-t-20">
+
+            <div class="form-group row ">
+                <label class="col-sm-2 control-label" >Nombre <span class="text-danger">*</span></label>
+                <div class="input-group">
+                <div class="input-group-addon"><i class="ti-location-pin"></i></div>
+                {!!Form::text('nombre',null,['class'=>'form-control', 'placeholder'=>'Colocar el Nombre del producto.'])!!}
+                
+            </div> <!-- ESTA PARTE SIRVE PARA LA VALIDACIÓN -->
+                @if($errors->first('nombre')) 
+                <i> {{ $errors->first('nombre') }} </i> 
+                @endif	<br>
+            </div> 
+<!-- ESTA ES LA PARTE COMPLETA DE UNA SECCION DEL CAMPO-->
+            <div class="form-group row ">
+                <label class="col-sm-2 control-label" >Apellido Paterno <span class="text-danger">*</span></label>
+                <div class="input-group">
+                <div class="input-group-addon"><i class="ti-location-pin"></i></div>
+                {!!Form::text('apellido_p',null,['class'=>'form-control', 'placeholder'=>'Colocar el precio del producto.'])!!}
+                
             </div>
-            <label class="col-sm-2 control-label">Last name</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" placeholder="Last name" data-toggle="tooltip" data-placement="bottom" title="Tooltip for last name">
+                @if($errors->first('precio')) 
+                <i> {{ $errors->first('precio') }} </i> 
+                @endif	<br>
+            </div> 
+<!--AQUI TERMINA -->
+<!-- ESTA ES LA PARTE COMPLETA DE UNA SECCION DEL CAMPO-->
+<div class="form-group row ">
+                <label class="col-sm-2 control-label" >Apellido Materno<span class="text-danger">*</span></label>
+                <div class="input-group">
+                <div class="input-group-addon"><i class="ti-location-pin"></i></div>
+                {!!Form::text('apellido_m',null,['class'=>'form-control', 'placeholder'=>'Colocar el precio del producto.'])!!}
+                
             </div>
-        </div>
-        <div class="form-group has-success has-feedback">
-            <label class="col-sm-2 control-label">Company</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" placeholder="Company">
+                @if($errors->first('precio')) 
+                <i> {{ $errors->first('precio') }} </i> 
+                @endif	<br>
+            </div> 
+<!--AQUI TERMINA -->
+<!-- ESTA ES LA PARTE COMPLETA DE UNA SECCION DEL CAMPO-->
+<div class="form-group row ">
+                <label class="col-sm-2 control-label" >Calle<span class="text-danger">*</span></label>
+                <div class="input-group">
+                <div class="input-group-addon"><i class="ti-location-pin"></i></div>
+                {!!Form::text('calle',null,['class'=>'form-control', 'placeholder'=>'Colocar el precio del producto.'])!!}
+                
             </div>
-            <label class="col-sm-2 control-label">Address</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" placeholder="Address">
-                <span class="fa fa-check-square-o txt-success form-control-feedback"></span>
+                @if($errors->first('precio')) 
+                <i> {{ $errors->first('precio') }} </i> 
+                @endif	<br>
+            </div> 
+<!--AQUI TERMINA -->
+<!-- ESTA ES LA PARTE COMPLETA DE UNA SECCION DEL CAMPO-->
+<div class="form-group row ">
+                <label class="col-sm-2 control-label" >Colonia <span class="text-danger">*</span></label>
+                <div class="input-group">
+                <div class="input-group-addon"><i class="ti-location-pin"></i></div>
+                {!!Form::text('colonia',null,['class'=>'form-control', 'placeholder'=>'Colocar el precio del producto.'])!!}
+                
             </div>
-        </div>
+                @if($errors->first('precio')) 
+                <i> {{ $errors->first('precio') }} </i> 
+                @endif	<br>
+            </div> 
+<!--AQUI TERMINA -->
+<!-- ESTA ES LA PARTE COMPLETA DE UNA SECCION DEL CAMPO-->
+<div class="form-group row ">
+                <label class="col-sm-2 control-label" >numero <span class="text-danger">*</span></label>
+                <div class="input-group">
+                <div class="input-group-addon"><i class="ti-location-pin"></i></div>
+                {!!Form::text('numero',null,['class'=>'form-control', 'placeholder'=>'Colocar el precio del producto.'])!!}
+                
+            </div>
+                @if($errors->first('precio')) 
+                <i> {{ $errors->first('precio') }} </i> 
+                @endif	<br>
+            </div> 
+<!--AQUI TERMINA -->
+<!-- ESTA ES LA PARTE COMPLETA DE UNA SECCION DEL CAMPO-->
+<div class="form-group row ">
+                <label class="col-sm-2 control-label" >codigo postal <span class="text-danger">*</span></label>
+                <div class="input-group">
+                <div class="input-group-addon"><i class="ti-location-pin"></i></div>
+                {!!Form::text('codigo_postal',null,['class'=>'form-control', 'placeholder'=>'Colocar el precio del producto.'])!!}
+                
+            </div>
+                @if($errors->first('precio')) 
+                <i> {{ $errors->first('precio') }} </i> 
+                @endif	<br>
+            </div> 
+<!--AQUI TERMINA -->
+<!-- ESTA ES LA PARTE COMPLETA DE UNA SECCION DEL CAMPO-->
+<div class="form-group row ">
+                <label class="col-sm-2 control-label" >telefono <span class="text-danger">*</span></label>
+                <div class="input-group">
+                <div class="input-group-addon"><i class="ti-location-pin"></i></div>
+                {!!Form::text('telefono',null,['class'=>'form-control', 'placeholder'=>'Colocar el precio del producto.'])!!}
+                
+            </div>
+                @if($errors->first('precio')) 
+                <i> {{ $errors->first('precio') }} </i> 
+                @endif	<br>
+            </div> 
+<!--AQUI TERMINA -->
+            <!-- ESTA ES LA PARTE COMPLETA DE UNA SECCION DEL CAMPO-->
+            <div class="form-group row ">
+                <label class="col-sm-2 control-label" >Email <span class="text-danger">*</span></label>
+                <div class="input-group">
+                <div class="input-group-addon"><i class="ti-location-pin"></i></div>
+                {!!Form::text('email',null,['class'=>'form-control', 'placeholder'=>'Colocar el precio del producto.'])!!}
+                
+            </div>
+                @if($errors->first('precio')) 
+                <i> {{ $errors->first('precio') }} </i> 
+                @endif	<br>
+            </div> 
+<!--AQUI TERMINA -->
+<!-- ESTA ES LA PARTE COMPLETA DE UNA SECCION DEL CAMPO-->
+<div class="form-group row ">
+                <label class="col-sm-2 control-label" >RFC <span class="text-danger">*</span></label>
+                <div class="input-group">
+                <div class="input-group-addon"><i class="ti-location-pin"></i></div>
+                {!!Form::text('RFC',null,['class'=>'form-control', 'placeholder'=>'Colocar el precio del producto.'])!!}
+                
+            </div>
+                @if($errors->first('precio')) 
+                <i> {{ $errors->first('precio') }} </i> 
+                @endif	<br>
+            </div> 
+<!--AQUI TERMINA -->
+         
+        
         <div class="form-group has-warning has-feedback">
-            <label class="col-sm-2 control-label">Residence</label>
-            <div class="col-sm-2">
-                <input type="text" class="form-control" placeholder="City">
-                <span class="fa fa-key txt-warning form-control-feedback"></span>
-            </div>
-            <div class="col-sm-2">
-                <input type="text" class="form-control" placeholder="Country">
-                <span class="fa fa-frown-o txt-danger form-control-feedback"></span>
-            </div>
-            <label class="col-sm-1 control-label">CODE</label>
-            <div class="col-sm-2">
-                <input type="text" class="form-control" placeholder="Another info" data-toggle="tooltip" data-placement="top" title="Hello world!">
-            </div>
-            <div class="col-sm-2">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" checked> No exist
-                        <i class="fa fa-square-o small"></i>
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div class="form-group has-warning has-feedback">
-            <label class="col-sm-2 control-label">Select you OS</label>
+            <label class="col-sm-2 control-label">Descuento</label>
             <div class="col-sm-4">
-                <select id="s2_with_tag" multiple="multiple" class="populate placeholder">
-                    <option>Linux</option>
-                    <option>Windows</option>
-                    <option>OpenSolaris</option>
-                    <option>FirefoxOS</option>
-                    <option>MeeGo</option>
-                    <option>Android</option>
-                    <option>Sailfish OS</option>
-                    <option>Plan9</option>
-                    <option>DOS</option>
-                    <option>AIX</option>
-                    <option>HP/UP</option>
+                <select class="form-control custom-select" name='id_descuento'>
+                    @foreach ($descuentos as $descuento)
+                <option value="{{$descuento['id_descuento']}}">{{$descuento['descuentos']}}
+ 
+
+
+                        </option>
+                    @endforeach
                 </select>
             </div>
-            <label class="col-sm-2 control-label">Tooltip for inputs</label>
-            <div class="col-sm-2">
-                <input type="text" class="form-control" placeholder="Another info" data-toggle="tooltip" data-placement="top" title="Hello world!">
-            </div>
-            <span class="help-inline col-xs-12 col-sm-2">
-                <span class="middle txt-default">only example</span>
-            </span>
         </div>
-        <div class="form-group has-error has-feedback">
-            <label class="col-sm-2 control-label">Date</label>
-            <div class="col-sm-2">
-                <input type="text" id="input_date" class="form-control" placeholder="Date">
-                <span class="fa fa-calendar txt-danger form-control-feedback"></span>
-            </div>
-            <div class="col-sm-2">
-                <input type="text" id="input_time" class="form-control" placeholder="Time">
-                <span class="fa fa-clock-o txt-danger form-control-feedback"></span>
-            </div>
-            <label class="col-sm-2 control-label">Disabled input</label>
-            <div class="col-sm-2">
-                <input type="text" class="form-control" placeholder="No info" data-toggle="tooltip" data-placement="top" title="Hello world!" disabled>
+        <div class="form-group has-warning has-feedback">
+            <label class="col-sm-2 control-label">Municipio</label>
+            <div class="col-sm-4">
+                <select class="form-control custom-select" name='id_municipio'>
+                    @foreach ($municipios as $municipio)
+                <option value="{{$municipio['id_municipio']}}">{{$municipio['muncipios']}}
+ 
+
+ 
+                        </option>
+                    @endforeach
+                </select>
             </div>
         </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label" for="form-styles">Relative Sizing</label>
-            <div class="col-sm-10">
-                <div class="row">
-                    <div class="col-sm-2">
-                        <input class="form-control" id="form-styles" placeholder=".col-sm-2" type="text">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <p><small>Dynamic resizing col</small></p>
-                        <div class="progress progress-ui">
-                              <div class="progress-bar progress-bar-success slider-style slider-range-min" style="width: 100%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label" for="form-styles">Textarea</label>
-            <div class="col-sm-10">
-                    <textarea class="form-control" rows="5" id="wysiwig_simple"></textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label" for="form-styles">Extreme Textarea</label>
-            <div class="col-sm-10">
-                    <textarea class="form-control" rows="5" id="wysiwig_full"></textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Input groups</label>
-            <div class="col-sm-2">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-github-square"></i></span>
-                  <input type="text" class="form-control" placeholder="GitHub">
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Group">
-                  <span class="input-group-addon"><i class="fa fa-group"></i></span>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-money"></i></span>
-                  <input type="text" class="form-control" placeholder="Money">
-                  <span class="input-group-addon"><i class="fa fa-usd"></i></span>
-                </div>
-            </div>
-        </div>
-        <div class="clearfix"></div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-2">
-                <button type="cancel" class="btn btn-default btn-label-left">
-                <span><i class="fa fa-clock-o txt-danger"></i></span>
-                    Cancel
-                </button>
-            </div>
-            <div class="col-sm-2">
-                <button type="submit" class="btn btn-warning btn-label-left">
-                <span><i class="fa fa-clock-o"></i></span>
-                    Send later
-                </button>
-            </div>
-            <div class="col-sm-2">
-                <button type="submit" class="btn btn-primary btn-label-left">
-                <span><i class="fa fa-clock-o"></i></span>
-                    Submit
-                </button>
-            </div>
-        </div>
-    </form>
-</div>
-@endsection
+     </form>
+     {!!Form::submit('Guardar',[' class'=>'btn btn-success waves-effect waves-light m-r-10'])!!}
+     {!!Form::reset('Cancelar',[' class'=>'btn btn-inverse waves-effect waves-light'])!!}
+    </div>
+    </div>
+    </div>
+</div>  
+{!!Form::close()!!}
+@stop

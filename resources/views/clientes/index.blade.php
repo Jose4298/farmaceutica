@@ -1,55 +1,77 @@
 @extends('layouts.principal')
 @section('content')
 
-<div class="col-xs-12 col-sm-6">
-    <div class="box">
-        <div class="box-header">
-            <div class="box-name">
-                <i class="fa fa-table"></i>
-                <span>Hover rows</span>
-            </div>
-            <div class="box-icons">
-                <a class="collapse-link">
-                    <i class="fa fa-chevron-up"></i>
-                </a>
-                <a class="expand-link">
-                    <i class="fa fa-expand"></i>
-                </a>
-                <a class="close-link">
-                    <i class="fa fa-times"></i>
-                </a>
-            </div>
-            <div class="no-move"></div>
-        </div>
-        <div class="box-content">
-            <p>Add <code>.table-hover</code> to enable a hover state on table rows within a <code>&lt;tbody&gt;</code>.</p>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Nombre</th>
-                        <th>Apellido paterno</th>
-                        <th>Apellido materno</th>
-                        <th>Calle</th>
-                        <th>Colonia</th>
-                        <th>Numero</th>
-                        <th>Codigo postal</th>
-                        <th>Telefono</th>
-                        <th>Email</th>
-                        <th>RFC</th>
-                        <th>ID_Descuento</th>
-                        <th>ID_Descuento</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                   
 
-                   
-                </tbody>
-            </table>
-        </div>
-    </div>
+@if(Session::has('message'))
+<div class="alert alert-info alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  {{Session::get('message')}}
 </div>
+@endif
 
+
+<div class="row justify-content-center">
+<div class="col-lg-6">                 
+<div class="card ">
+                            <div class="card-title">
+                                <h4 aling-text='center'>Clientes  Registrados.. </h4>
+                                <td><a class="btn btn-dark btn-outline m-b-10 m-l-5" href="{{route('cliente.create')}}"   role="button"> + Agregar un nuevo estado</a></td>
+                               
+                               
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    
+                                    <table class="table table-hover ">
+                                    <thead>
+                                        <tr>
+                                                <th>#</th>
+                                                <th>Nombre</th>
+                                                <th>Apellido Paterno</th>
+                                                <th>Apellido Materno</th>
+                                                <th>Telefono</th> 
+                                                <th>Correo</th>
+                                                <th>RFC</th>  
+                                        </tr>    
+                                    </thead>
+                                    <tfoot>
+                                            <tr>
+                                            <th>#</th>
+                                            <th>#</th>
+                                                <th>Nombre</th>
+                                                <th>Apellido Paterno</th>
+                                                <th>Apellido Materno</th>
+                                                <th>Telefono</th> 
+                                                <th>Correo</th>
+                                                <th>RFC</th> 
+                                            </tr>
+                                    </tfoot>
+                                        @foreach($clientes as $cliente)
+                                       <tbody>
+                                       <td>{{$cliente->id_cliente}}</td>
+                                       <td>{{$cliente->nombre}}</td>
+                                       <td>{{$cliente->apellido_p}}</td>
+                                       <td>{{$cliente->apellido_m}}</td>
+                                     
+                                       <td>{{$cliente->telefono}}</td>
+                                       <td>{{$cliente->email}}</td>
+                                       <td>{{$cliente->RFC}}</td>
+                                      
+                                       <td>
+                                        {!!link_to_route('cliente.edit', $title = 'Editar', $parameters = $cliente->id_cliente, $attributes = ['class'=>'btn btn-success btn-flat btn-addon m-b-10 m-l-5'])!!} 
+                                    
+                                        {!!Form::open(['route' => ['cliente.destroy',$cliente->id_cliente],'method'=>'DELETE'])!!} 
+                                        {!!Form::submit('Eliminar',['class'=>'btn btn-inverse waves-effect waves-light'  ])!!}
+                                        {!!Form::close()!!}
+
+                                       </td>
+                                        </tbody>
+                                       @endforeach
+                                   </table>
+                                </div>
+                               </div>
+                             </div>   
+                           </div>
+</div>
+      
 @endsection

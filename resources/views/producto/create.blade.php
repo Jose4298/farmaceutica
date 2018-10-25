@@ -11,11 +11,11 @@
      <div class="col-lg-6">
         <div class="card  ">
         <div class="card-body ">
-        <h4 class="card-title">Ingresar un nuevo producto.</h4>
+        <h4 class="page-header">Ingresar un nuevo producto.</h4>
         <form class="form p-t-20">
 
             <div class="form-group row ">
-                <label class="col-lg-4 col-form-label" >Nombre <span class="text-danger">*</span></label>
+                <label class="col-sm-2 control-label" >Nombre <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-addon"><i class="ti-location-pin"></i></div>
                 {!!Form::text('nombre',null,['class'=>'form-control', 'placeholder'=>'Colocar el Nombre del producto.'])!!}
@@ -27,7 +27,7 @@
             </div> 
 <!-- ESTA ES LA PARTE COMPLETA DE UNA SECCION DEL CAMPO-->
             <div class="form-group row ">
-                <label class="col-lg-4 col-form-label" >Precio <span class="text-danger">*</span></label>
+                <label class="col-sm-2 control-label" >Precio <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-addon"><i class="ti-location-pin"></i></div>
                 {!!Form::text('precio',null,['class'=>'form-control', 'placeholder'=>'Colocar el precio del producto.'])!!}
@@ -40,7 +40,7 @@
 <!--AQUI TERMINA -->
             
           <div class="form-group row ">
-                <label class="col-lg-4 col-form-label" >Cantidad MAX  <span class="text-danger">*</span></label>
+                <label class="col-sm-2 control-label" >Cantidad MAX  <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-addon"><i class="ti-location-pin"></i></div>
                 {!!Form::text('max_bodega',null,['class'=>'form-control', 'placeholder'=>'Coloca la cantidad maxima del producto.'])!!}
@@ -52,7 +52,7 @@
             </div> 
               
           <div class="form-group row ">
-            <label class="col-lg-4 col-form-label" >Cantidad MIN  <span class="text-danger">*</span></label>
+            <label class="col-sm-2 control-label" >Cantidad MIN  <span class="text-danger">*</span></label>
             <div class="input-group">
             <div class="input-group-addon"><i class="ti-location-pin"></i></div>
             {!!Form::text('min_bodega',null,['class'=>'form-control', 'placeholder'=>'Coloca la cantidad minima del producto.'])!!}
@@ -64,7 +64,7 @@
         </div> 
         
         <div class="form-group row ">
-            <label class="col-lg-4 col-form-label" >PUNTO MEDIO BODEGA <span class="text-danger">*</span></label>
+            <label class="col-sm-2 control-label" >PUNTO MEDIO BODEGA <span class="text-danger">*</span></label>
             <div class="input-group">
             <div class="input-group-addon"><i class="ti-location-pin"></i></div>
             {!!Form::text('punto_m_bodega',null,['class'=>'form-control', 'placeholder'=>'Colocar el punto medio en bodega del producto.'])!!}
@@ -77,12 +77,12 @@
 
         
         
-        <div class="row form-group">
-                <label class="col-lg-4 col-form-label" >SECCION. <span class="text-danger">*</span></label>
-            <div class="col-sm-12">
+        <div class="form-group has-warning has-feedback">
+            <label class="col-sm-2 control-label">Seccion</label>
+            <div class="col-sm-4">
                 <select class="form-control custom-select" name='id_seccion'>
                     @foreach ($secciones as $seccion)
-                <option value="{{$seccion['id_seccion']}}">{{$seccion['seccion']}}
+                <option value="{{$seccion['id_seccion']}}">{{$seccion['secciones']}}
 
                         </option>
                     @endforeach

@@ -152,30 +152,16 @@
 						<span class="hidden-xs">Dashboard</span>
 					</a>
 				</li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle">
-						<i class="fa fa-bar-chart-o"></i>
-						<span class="hidden-xs">Charts</span>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a class="ajax-link" href="ajax/charts_xcharts.html">xCharts</a></li>
-						<li><a class="ajax-link" href="ajax/charts_flot.html">Flot Charts</a></li>
-						<li><a class="ajax-link" href="ajax/charts_google.html">Google Charts</a></li>
-						<li><a class="ajax-link" href="ajax/charts_morris.html">Morris Charts</a></li>
-						<li><a class="ajax-link" href="ajax/charts_amcharts.html">AmCharts</a></li>
-						<li><a class="ajax-link" href="ajax/charts_chartist.html">Chartist</a></li>
-						<li><a class="ajax-link" href="ajax/charts_coindesk.html">CoinDesk realtime</a></li>
-					</ul>
-				</li>
+				
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
 						<i class="fa fa-table"></i>
 						 <span class="hidden-xs">Tables</span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a class="ajax-link" href="ajax/tables_simple.html">Simple Tables</a></li>
-						<li><a class="ajax-link" href="ajax/tables_datatables.html">Data Tables</a></li>
-						<li><a class="ajax-link" href="ajax/tables_beauty.html">Beauty Tables</a></li>
+						<li><a class="ajax-link" href="{{route('cliente.create')}}">municipio</a></li>
+						<li><a class="ajax-link" href="">Data Tables</a></li>
+						<li><a class="ajax-link" href="">Beauty Tables</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">
@@ -349,14 +335,13 @@
 <!--End Container-->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!--<script src="http://code.jquery.com/jquery.js"></script>-->
-<script src="plugins/jquery/jquery.min.js"></script>
-<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="plugins/bootstrap/bootstrap.min.js"></script>
-<script src="plugins/justified-gallery/jquery.justifiedGallery.min.js"></script>
-<script src="plugins/tinymce/tinymce.min.js"></script>
-<script src="plugins/tinymce/jquery.tinymce.min.js"></script>
-<!-- All functions for this theme + document.ready processing -->
-<script src="js/devoops.js"></script>
+
+{!!Html::script('js/devoops.js')!!}
+{!!Html::script('plugins/tinymce/jquery.tinymce.min.js')!!}
+{!!Html::script('plugins/tinymce/tinymce.min.js')!!}
+{!!Html::script('plugins/justified-gallery/jquery.justifiedGallery.min.js')!!}
+{!!Html::script('plugins/bootstrap/bootstrap.min.js')!!}
+{!!Html::script('plugins/jquery-ui/jquery-ui.min.js')!!}
+{!!Html::script('plugins/jquery/jquery.min.js')!!}
 </body>
 </html>

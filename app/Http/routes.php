@@ -14,6 +14,7 @@
 Route::get('/','farmaceutic@index');
 
 Route::resource('cliente','clienteController');
+
 Route::get('admin','FrontController@admin');
 
 Route::resource('usuario','UsuarioController');
