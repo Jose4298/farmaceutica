@@ -82,7 +82,7 @@
             <div class="col-sm-4">
                 <select class="form-control custom-select" name='id_seccion'>
                     @foreach ($secciones as $seccion)
-                <option value="{{$seccion['id_seccion']}}">{{$seccion['secciones']}}
+                <option value="{{$seccion['id_seccion']}}">{{$seccion['nombre']}}
 
                         </option>
                     @endforeach

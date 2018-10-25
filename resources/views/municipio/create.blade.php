@@ -31,7 +31,7 @@
             <div class="col-sm-12">
                 <select class="form-control custom-select" name='id_estado'>
                     @foreach ($estados as $estado)
-                <option value="{{$estado['id_estado']}}">{{$estado['estado']}}
+                <option value="{{$estado['id_estado']}}">{{$estado['nombre']}}
 
                         </option>
                     @endforeach

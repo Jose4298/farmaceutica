@@ -149,7 +149,7 @@
             <div class="col-sm-4">
                 <select class="form-control custom-select" name='id_descuento'>
                     @foreach ($descuentos as $descuento)
-                <option value="{{$descuento['id_descuento']}}">{{$descuento['descuentos']}}
+                <option value="{{$descuento['id_descuento']}}">{{$descuento['porcentaje']}}
  
 
 
@@ -163,7 +163,7 @@
             <div class="col-sm-4">
                 <select class="form-control custom-select" name='id_municipio'>
                     @foreach ($municipios as $municipio)
-                <option value="{{$municipio['id_municipio']}}">{{$municipio['muncipios']}}
+                <option value="{{$municipio['id_municipio']}}">{{$municipio['nombre']}}
  
 
  
