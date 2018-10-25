@@ -20,7 +20,7 @@ class Empleados extends Migration
 			$table->string('calle');
 			$table->string('colonia');
 			$table->integer('numero');
-			$table->integer('codigo postal');
+			$table->integer('codigo_postal');
 			$table->integer('telefono');
 			$table->string('email', 150);
 			$table->string('RFC', 13);
