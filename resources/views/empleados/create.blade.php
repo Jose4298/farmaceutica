@@ -150,7 +150,7 @@
             <div class="col-sm-4">
                 <select class="form-control custom-select" name='id_municipio'>
                     @foreach ($municipios as $municipio)
-                <option value="{{$municipio['id_municipio']}}">{{$municipio['muncipios']}}
+                <option value="{{$municipio['id_municipio']}}">{{$municipio['nombre']}}
  
 
  
@@ -159,6 +159,10 @@
                 </select>
             </div>
         </div>
+        </div>
+        <br>
+        <br>
+        <br>
      </form>
      {!!Form::submit('Guardar',[' class'=>'btn btn-success waves-effect waves-light m-r-10'])!!}
      {!!Form::reset('Cancelar',[' class'=>'btn btn-inverse waves-effect waves-light'])!!}

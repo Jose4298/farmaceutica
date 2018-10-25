@@ -43,7 +43,7 @@ class empleadocontroller extends Controller
         'id_municipio' => $request['id_municipio'],
          ]);
         Session::flash('message','Empleado editado correctamente');
-        return  Redirect::to('/empleados');
+        return  Redirect::to('/empleado');
         // redireccionando al carpeta y / significa index
     }
    public function show($id_empleado)

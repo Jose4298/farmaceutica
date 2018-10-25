@@ -90,8 +90,8 @@
 											</div>
 											<i class="fa fa-angle-down pull-right"></i>
 											<div class="user-mini pull-right">
-												<span class="welcome">Welcome,</span>
-												<span>Jane Devoops</span>
+												<span class="welcome">Bienvenidos</span>
+												<span></span>
 											</div>
 										</a>
 										<ul class="dropdown-menu">
@@ -179,7 +179,20 @@
 							</a>
 							
 						</li>
-						
+						<li class="dropdown">
+							<a href="{{route('proveedor.index')}}" class="dropdown-toggle">
+								<i class="fa fa-table"></i>
+								 <span class="hidden-xs">proveedores</span>
+							</a>
+							
+						</li>
+						<li class="dropdown">
+							<a href="{{route('empleado.index')}}" class="dropdown-toggle">
+								<i class="fa fa-table"></i>
+								 <span class="hidden-xs">Empleados</span>
+							</a>
+							
+						</li>
 						
 					
 					

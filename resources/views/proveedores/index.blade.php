@@ -15,7 +15,7 @@
 <div class="card ">
                             <div class="card-title">
                                 <h4 aling-text='center'>Proveedores  Registrados.. </h4>
-                                <td><a class="btn btn-dark btn-outline m-b-10 m-l-5" href="{{route('proveedores.create')}}"   role="button"> + Agregar un nuevo proveedor</a></td>
+                                <td><a class="btn btn-dark btn-outline m-b-10 m-l-5" href="{{route('proveedor.create')}}"   role="button"> + Agregar un nuevo proveedor</a></td>
                                
                                
                             </div>

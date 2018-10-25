@@ -41,7 +41,7 @@ class proveedorcontroller extends Controller
         'id_municipio' => $request['id_municipio'],
          ]);
         Session::flash('message','Proveedor editado correctamente');
-        return  Redirect::to('/proveedores');
+        return  Redirect::to('/proveedor');
         // redireccionando al carpeta y / significa index
     }
    public function show($id_proveedores)
