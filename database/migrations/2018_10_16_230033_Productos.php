@@ -19,6 +19,7 @@ class Productos extends Migration
             $table->integer('max_bodega');
             $table->integer('min_bodega');
             $table->integer('punto_m_bodega');
+            $table->string('archivo',350);
             $table->integer('id_seccion')->unsigned();
             $table->foreign('id_seccion')->references('id_seccion')->on('secciones')->onDelete('cascade');
             $table->timestamps();

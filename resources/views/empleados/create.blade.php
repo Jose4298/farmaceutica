@@ -3,7 +3,7 @@
 
 {{csrf_field()}}
 
-{!!Form::open(['route'=>'empleado.store', 'method'=>'POST'])!!}
+{!!Form::open(['route'=>'empleado.store', 'method'=>'POST', 'enctype'=>'multipart/form-data'])!!}
 
 
 
@@ -159,6 +159,18 @@
                 </select>
             </div>
         </div>
+        </div>
+        <div class="form-group row ">
+            <label class="col-lg-4 col-form-label" >Imagen. <span class="text-danger">*</span></label>
+            <div class="input-group">
+            <div class="input-group-addon"><i class="ti-user"></i></div>
+            <input type="file" id="img" name="img">
+        </div>
+        <div>
+        </div>
+        @if($errors->first('img')) 
+        <i> {{ $errors->first('img') }} </i> 
+        @endif	<br>
         </div>
         <br>
         <br>

@@ -31,12 +31,14 @@
                                                 <th>Apellido Materno</th>
                                                 <th>Telefono</th> 
                                                 <th>Correo</th>
-                                                <th>RFC</th>  
+                                                <th>RFC</th> 
+                                                <th>Imagen<th> 
+                                                <th>Operaciones<th> 
                                         </tr>    
                                     </thead>
                                     <tfoot>
                                             <tr>
-                                            <th>#</th>
+                                          
                                             <th>#</th>
                                                 <th>Nombre</th>
                                                 <th>Apellido Paterno</th>
@@ -44,6 +46,8 @@
                                                 <th>Telefono</th> 
                                                 <th>Correo</th>
                                                 <th>RFC</th> 
+                                                <th>Imagen<th> 
+                                                <th>Operaciones<th> 
                                             </tr>
                                     </tfoot>
                                         @foreach($empleados as $empleado)
@@ -56,6 +60,7 @@
                                        <td>{{$empleado->telefono}}</td>
                                        <td>{{$empleado->email}}</td>
                                        <td>{{$empleado->RFC}}</td>
+                                       <td><img src="img_usuario/{{$empleado->archivo}}" alt="" style="width:200px; height:100px;"></td>
                                       
                                        <td>
                                         {!!link_to_route('empleado.edit', $title = 'Editar', $parameters = $empleado->id_empleado, $attributes = ['class'=>'btn btn-success btn-flat btn-addon m-b-10 m-l-5'])!!} 

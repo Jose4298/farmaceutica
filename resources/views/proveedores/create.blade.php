@@ -147,6 +147,8 @@
             </div>
         </div>
      </form>
+     <br>
+     <br>
      {!!Form::submit('Guardar',[' class'=>'btn btn-success waves-effect waves-light m-r-10'])!!}
      {!!Form::reset('Cancelar',[' class'=>'btn btn-inverse waves-effect waves-light'])!!}
     </div>

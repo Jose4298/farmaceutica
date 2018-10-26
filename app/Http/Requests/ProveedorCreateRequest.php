@@ -24,15 +24,15 @@ class ProveedorCreateRequest extends Request
     public function rules()
     {
         return [
-            'nombre' => 'required|alpha|regex:/^[A-Z,,a-z, ,ñ,á,é,í,ó,ú]+$/',
+            'nombre' => 'required|regex:/^[A-Z,,a-z, ,ñ,á,é,í,ó,ú]+$/',
             'RFC' => 'required|max:12',
-            'calle' => 'required|alpha|regex:/^[A-Z,,a-z, ,ñ,á,é,í,ó,ú]+$/',
-            'colonia' => 'required|alpha|regex:/^[A-Z,,a-z, ,ñ,á,é,í,ó,ú]+$/',
+            'calle' => 'required|regex:/^[A-Z,,a-z, ,ñ,á,é,í,ó,ú]+$/',
+            'colonia' => 'required|regex:/^[A-Z,,a-z, ,ñ,á,é,í,ó,ú]+$/',
             'numero' => 'required|max:7',
             'codigo_postal' => 'required|max:5',
             'telefono' => 'required|max:10',
             'email' => 'required|email',
-            'nombre_contacto' => 'required|alpha|regex:/^[A-Z,,a-z, ,ñ,á,é,í,ó,ú]+$/',
+            'nombre_contacto' => 'required|regex:/^[A-Z,,a-z, ,ñ,á,é,í,ó,ú]+$/',
         ];
     }
 }

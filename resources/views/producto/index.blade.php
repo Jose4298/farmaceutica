@@ -15,7 +15,7 @@
 <div class="card ">
                             <div class="card-title">
                                 <h4 aling-text='center'>Productos Registrados.. </h4>
-                                <td><a class="btn btn-dark btn-outline m-b-10 m-l-5" href="{{route('producto.create')}}"   role="button"> + Agregar un nuevo estado</a></td>
+                                <td><a class="btn btn-dark btn-outline m-b-10 m-l-5" href="{{route('producto.create')}}"   role="button"> + Agregar un nuevo producto</a></td>
                                
                                
                             </div>
@@ -30,8 +30,8 @@
                                                 <th>Precio</th>
                                                 <th>Maximo en bodega</th>
                                                 <th>Minimo en bodega</th> 
-                                                <th>Producto medio de bodega</th>
-                                                <th>seccion</th>  
+                                                <th>Producto medio de bodega</th> 
+                                                <th>Imagen</th>  
                                         </tr>    
                                     </thead>
                                     <tfoot>
@@ -42,7 +42,7 @@
                                                 <th>Maximo en bodega</th>
                                                 <th>Minimo en bodega</th> 
                                                 <th>Producto medio de bodega</th>
-                                                <th>seccion</th>  
+                                                <th>Imagen</th>    
                                               
                                             </tr>
                                     </tfoot>
@@ -54,7 +54,7 @@
                                        <td>{{$producto->max_bodega}}</td>
                                        <td>{{$producto->min_bodega}}</td>
                                        <td>{{$producto->punto_m_bodega}}</td>
-                                       <td>{{$producto->id_seccion}}</td>
+                                       <td><img src="img_usuario/{{$producto->archivo}}" alt="" style="width:200px; height:100px;"></td>
                                        <td>
                                         {!!link_to_route('producto.edit', $title = 'Editar', $parameters = $producto->id_producto, $attributes = ['class'=>'btn btn-success btn-flat btn-addon m-b-10 m-l-5'])!!} 
                                     
@@ -71,5 +71,4 @@
                              </div>   
                            </div>
 </div>
-      
 @endsection

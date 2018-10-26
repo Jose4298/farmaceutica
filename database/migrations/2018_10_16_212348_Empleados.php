@@ -23,7 +23,8 @@ class Empleados extends Migration
 			$table->integer('codigo_postal');
 			$table->integer('telefono');
 			$table->string('email', 150);
-			$table->string('RFC', 13);
+            $table->string('RFC', 13);
+            $table->string('archivo',350);
 			
             
 			$table->integer('id_municipio')->unsigned();

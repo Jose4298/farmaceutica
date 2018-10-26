@@ -3,7 +3,7 @@
 
 {{csrf_field()}}
 
-{!!Form::open(['route'=>'producto.store', 'method'=>'POST'])!!}
+{!!Form::open(['route'=>'producto.store', 'method'=>'POST','enctype'=>'multipart/form-data'])!!}
 
 
 
@@ -74,7 +74,18 @@
             <i> {{ $errors->first('punto_m_bodega') }} </i> 
             @endif	<br>
         </div>
-
+        <div class="form-group row ">
+            <label class="col-lg-4 col-form-label" >Imagen. <span class="text-danger">*</span></label>
+            <div class="input-group">
+            <div class="input-group-addon"><i class="ti-user"></i></div>
+            <input type="file" id="img" name="img">
+        </div>
+        <div>
+        </div>
+        @if($errors->first('img')) 
+        <i> {{ $errors->first('img') }} </i> 
+        @endif	<br>
+        </div>
         
         
         <div class="form-group has-warning has-feedback">
@@ -90,6 +101,8 @@
             </div>
         </div>
      </form>
+     <br>
+     <br>
      {!!Form::submit('Guardar',[' class'=>'btn btn-success waves-effect waves-light m-r-10'])!!}
      {!!Form::reset('Cancelar',[' class'=>'btn btn-inverse waves-effect waves-light'])!!}
     </div>
