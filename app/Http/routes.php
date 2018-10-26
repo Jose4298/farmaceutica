@@ -17,7 +17,7 @@ Route::resource('usuario','UsuarioController');
 Route::get('/','farmaceutic@index');
 Route::resource('cliente','clienteController');
 Route::resource('estado','estadocontroller');
-
+Route::resource('seccion','seccionController');
 Route::resource('proveedor','proveedorcontroller');
 Route::resource('empleado','empleadocontroller');
 

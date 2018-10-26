@@ -4,7 +4,7 @@ namespace Farmaceutic\Http\Requests;
 
 use Farmaceutic\Http\Requests\Request;
 
-class ProductoRequestCreate extends Request
+class SeccionCreateRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,7 @@ class ProductoRequestCreate extends Request
     public function rules()
     {
         return [
-            'nombre' => 'required|regex:/^[A-Z,,a-z, ,ñ,á,é,í,ó,ú]+$/',
-            'precio' => 'required|regex:/^[0-9]+[.][0-9]{2}$/',
-            'max_bodega' => 'required',
-            'min_bodega' => 'required',
-            'punto_m_bodega' => 'required',
-            'img' => 'image|mimes:jpeg,png,jpg,gif',
-            
-            
+            //
         ];
     }
 }

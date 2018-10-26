@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>DevOOPS v2</title>
+		<title>Farmaceutica</title>
 		<meta name="description" content="description">
 		<meta name="author" content="DevOOPS">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,7 +51,7 @@
 			<div class="container-fluid expanded-panel">
 				<div class="row">
 					<div id="logo" class="col-xs-12 col-sm-2">
-						<a href="index.html">DevOOPS v2</a>
+						<a href="index.html">Farmaceutica</a>
 					</div>
 					<div id="top-panel" class="col-xs-12 col-sm-10">
 						<div class="row">
@@ -62,7 +62,7 @@
 								</div>
 							</div>
 							<div class="col-xs-4 col-sm-8 top-panel-right">
-								<a href="#" class="about">about</a>
+								<a href="#" class="about">Acerca de</a>
 								<a href="index_v1.html" class="style1"></a>
 								<ul class="nav navbar-nav pull-right panel-menu">
 									<li class="hidden-xs">
@@ -190,6 +190,13 @@
 							<a href="{{route('empleado.index')}}" class="dropdown-toggle">
 								<i class="fa fa-table"></i>
 								 <span class="hidden-xs">Empleados</span>
+							</a>
+							
+						</li>
+						<li class="dropdown">
+							<a href="{{route('seccion.index')}}" class="dropdown-toggle">
+								<i class="fa fa-table"></i>
+								 <span class="hidden-xs">Secciones</span>
 							</a>
 							
 						</li>

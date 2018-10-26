@@ -34,6 +34,7 @@ class EmpleadoCreateRequest extends Request
             'telefono' => 'required|max:10',
             'email' => 'required|email',
             'RFC' => 'required|max:12', 
+            'img' => 'image|mimes:jpeg,png,jpg,gif',
         ];
     }
 }
