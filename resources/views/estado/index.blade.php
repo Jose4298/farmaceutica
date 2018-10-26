@@ -14,7 +14,7 @@
 <div class="col-lg-6">                 
 <div class="card ">
                             <div class="card-title">
-                                <h4 aling-text='center'>Estados Registrados.. </h4>
+                                <h4 aling-text='center'>Estados Registrados. </h4>
                                 <td><a class="btn btn-dark btn-outline m-b-10 m-l-5" href="{{route('estado.create')}}"   role="button"> + Agregar un nuevo estado</a></td>
                                
                                

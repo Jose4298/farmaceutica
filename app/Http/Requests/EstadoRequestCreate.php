@@ -24,7 +24,10 @@ class EstadoRequestCreate extends Request
     public function rules()
     {
         return [
-          // 'nombre' => 'required|unique:estados',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+          'nombre' => 'required|alpha|unique:estados',
+         
+
+
         ];
     }
 }

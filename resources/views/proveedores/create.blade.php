@@ -18,7 +18,7 @@
                 <label class="col-sm-2 control-label" >Nombre <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-addon"><i class="ti-location-pin"></i></div>
-                {!!Form::text('nombre',null,['class'=>'form-control', 'placeholder'=>'Colocar el Nombre del producto.'])!!}
+                {!!Form::text('nombre',null,['class'=>'form-control', 'placeholder'=>'Coloca el Nombre del Proveedor.'])!!}
                 
             </div> <!-- ESTA PARTE SIRVE PARA LA VALIDACIÓN -->
                 @if($errors->first('nombre')) 
@@ -30,11 +30,11 @@
                 <label class="col-sm-2 control-label" >RFC <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-addon"><i class="ti-location-pin"></i></div>
-                {!!Form::text('RFC',null,['class'=>'form-control', 'placeholder'=>'Colocar el precio del producto.'])!!}
+                {!!Form::text('RFC',null,['class'=>'form-control', 'placeholder'=>'Coloca el RFC.'])!!}
                 
             </div>
-                @if($errors->first('precio')) 
-                <i> {{ $errors->first('precio') }} </i> 
+                @if($errors->first('RFC')) 
+                <i> {{ $errors->first('RFC') }} </i> 
                 @endif	<br>
             </div> 
 <!--AQUI TERMINA -->
@@ -43,11 +43,11 @@
                 <label class="col-sm-2 control-label" >Calle<span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-addon"><i class="ti-location-pin"></i></div>
-                {!!Form::text('calle',null,['class'=>'form-control', 'placeholder'=>'Colocar el precio del producto.'])!!}
+                {!!Form::text('calle',null,['class'=>'form-control', 'placeholder'=>'Coloca la calle.'])!!}
                 
             </div>
-                @if($errors->first('precio')) 
-                <i> {{ $errors->first('precio') }} </i> 
+                @if($errors->first('calle')) 
+                <i> {{ $errors->first('calle') }} </i> 
                 @endif	<br>
             </div> 
 <!--AQUI TERMINA -->
@@ -56,50 +56,50 @@
                 <label class="col-sm-2 control-label" >Colonia <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-addon"><i class="ti-location-pin"></i></div>
-                {!!Form::text('colonia',null,['class'=>'form-control', 'placeholder'=>'Colocar el precio del producto.'])!!}
+                {!!Form::text('colonia',null,['class'=>'form-control', 'placeholder'=>'Coloca la colonia.'])!!}
                 
             </div>
-                @if($errors->first('precio')) 
-                <i> {{ $errors->first('precio') }} </i> 
+                @if($errors->first('colonia')) 
+                <i> {{ $errors->first('colonia') }} </i> 
                 @endif	<br>
             </div> 
 <!--AQUI TERMINA -->
 <!-- ESTA ES LA PARTE COMPLETA DE UNA SECCION DEL CAMPO-->
 <div class="form-group row ">
-                <label class="col-sm-2 control-label" >numero <span class="text-danger">*</span></label>
+                <label class="col-sm-2 control-label" >Número <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-addon"><i class="ti-location-pin"></i></div>
-                {!!Form::text('numero',null,['class'=>'form-control', 'placeholder'=>'Colocar el precio del producto.'])!!}
+                {!!Form::text('numero',null,['class'=>'form-control', 'placeholder'=>'Coloca el número exterior.'])!!}
                 
             </div>
-                @if($errors->first('precio')) 
-                <i> {{ $errors->first('precio') }} </i> 
+                @if($errors->first('numero')) 
+                <i> {{ $errors->first('numero') }} </i> 
                 @endif	<br>
             </div> 
 <!--AQUI TERMINA -->
 <!-- ESTA ES LA PARTE COMPLETA DE UNA SECCION DEL CAMPO-->
 <div class="form-group row ">
-                <label class="col-sm-2 control-label" >codigo postal <span class="text-danger">*</span></label>
+                <label class="col-sm-2 control-label" >Codigo postal <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-addon"><i class="ti-location-pin"></i></div>
-                {!!Form::text('codigo_postal',null,['class'=>'form-control', 'placeholder'=>'Colocar el precio del producto.'])!!}
+                {!!Form::text('codigo_postal',null,['class'=>'form-control', 'placeholder'=>'Coloca el codigo postal.'])!!}
                 
             </div>
-                @if($errors->first('precio')) 
-                <i> {{ $errors->first('precio') }} </i> 
+                @if($errors->first('codigo_postal')) 
+                <i> {{ $errors->first('codigo_postal') }} </i> 
                 @endif	<br>
             </div> 
 <!--AQUI TERMINA -->
 <!-- ESTA ES LA PARTE COMPLETA DE UNA SECCION DEL CAMPO-->
 <div class="form-group row ">
-                <label class="col-sm-2 control-label" >telefono <span class="text-danger">*</span></label>
+                <label class="col-sm-2 control-label" >Telefono <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-addon"><i class="ti-location-pin"></i></div>
-                {!!Form::text('telefono',null,['class'=>'form-control', 'placeholder'=>'Colocar el precio del producto.'])!!}
+                {!!Form::text('telefono',null,['class'=>'form-control', 'placeholder'=>'Coloca el telefono.'])!!}
                 
             </div>
-                @if($errors->first('precio')) 
-                <i> {{ $errors->first('precio') }} </i> 
+                @if($errors->first('telefono')) 
+                <i> {{ $errors->first('telefono') }} </i> 
                 @endif	<br>
             </div> 
 <!--AQUI TERMINA -->
@@ -108,11 +108,11 @@
                 <label class="col-sm-2 control-label" >Email <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-addon"><i class="ti-location-pin"></i></div>
-                {!!Form::text('email',null,['class'=>'form-control', 'placeholder'=>'Colocar el precio del producto.'])!!}
+                {!!Form::text('email',null,['class'=>'form-control', 'placeholder'=>'Coloca el email.'])!!}
                 
             </div>
-                @if($errors->first('precio')) 
-                <i> {{ $errors->first('precio') }} </i> 
+                @if($errors->first('email')) 
+                <i> {{ $errors->first('email') }} </i> 
                 @endif	<br>
             </div> 
 <!--AQUI TERMINA -->
@@ -121,11 +121,11 @@
                 <label class="col-sm-2 control-label" >Nombre de Contacto<span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-addon"><i class="ti-location-pin"></i></div>
-                {!!Form::text('nombre_contacto',null,['class'=>'form-control', 'placeholder'=>'Colocar el precio del producto.'])!!}
+                {!!Form::text('nombre_contacto',null,['class'=>'form-control', 'placeholder'=>'Coloca el nombre de contacto.'])!!}
                 
             </div>
-                @if($errors->first('precio')) 
-                <i> {{ $errors->first('precio') }} </i> 
+                @if($errors->first('nombre_contacto')) 
+                <i> {{ $errors->first('nombre_contacto') }} </i> 
                 @endif	<br>
             </div> 
 <!--AQUI TERMINA -->
