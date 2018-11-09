@@ -50,8 +50,13 @@ class proveedorcontroller extends Controller
    }
     public function edit($id_proveedores)
     {
-    //  $estado = estados::find($id_estado);
-     // return view('estado.edit', ['estado'=>$estado]);
+        $proveedores = proveedor::find($id_proveedores);
+        $municipios = municipio::all();
+        
+       return view('proveedores.edit')
+       ->with('proveedores',$proveedores)
+       ->with('municipios',$municipios);
+       
     }
     public function update($id_municipio, Request $request )
     {

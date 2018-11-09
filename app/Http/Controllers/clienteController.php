@@ -55,16 +55,22 @@ class clienteController extends Controller
    }
     public function edit($id_cliente)
     {
-    //  $estado = estados::find($id_estado);
-     // return view('estado.edit', ['estado'=>$estado]);
+    
+    $clientes = Clientes::find($id_cliente);
+    $descuentos = descuento::all();
+    $municipios = municipio::all();
+   return view('clientes.edit')
+   ->with('clientes',$clientes)
+   ->with('descuentos',$descuentos)
+   ->with('municipios',$municipios);
     }
-    public function update($id_municipio, Request $request )
+    public function update($id_cliente, Request $request )
     {
-       // $estado = estados::find($id_estado);
-        //$estado->fill($request->all());
-       // $estado->save();
-        //Session::flash('message','Estado editado correctamente');
-        //return  Redirect::to('/estado');
+       $cliente = Clientes::find($id_cliente);
+        $cliente->fill($request->all());
+       $cliente->save();
+    Session::flash('message','Estado editado correctamente');
+    return  Redirect::to('/cliente');
     }
    public function destroy($id_cliente)
     {

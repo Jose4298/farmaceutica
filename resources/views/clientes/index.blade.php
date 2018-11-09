@@ -15,7 +15,7 @@
 <div class="card ">
                             <div class="card-title">
                                 <h4 aling-text='center'>Clientes  Registrados.. </h4>
-                                <td><a class="btn btn-dark btn-outline m-b-10 m-l-5" href="{{route('cliente.create')}}"   role="button"> + Agregar un nuevo estado</a></td>
+                                <td><a class="btn btn-dark btn-outline m-b-10 m-l-5" href="{{route('cliente.create')}}"   role="button"> + Agregar un nuevo cliente</a></td>
                                
                                
                             </div>
