@@ -32,6 +32,7 @@
                                                 <th>Minimo en bodega</th> 
                                                 <th>Producto medio de bodega</th> 
                                                 <th>Imagen</th>  
+                                                <th>Operaciones</th> 
                                         </tr>    
                                     </thead>
                                     <tfoot>
@@ -43,9 +44,11 @@
                                                 <th>Minimo en bodega</th> 
                                                 <th>Producto medio de bodega</th>
                                                 <th>Imagen</th>    
+                                                <th>Operaciones</th> 
                                               
                                             </tr>
                                     </tfoot>
+                                    @if(count($productos) > 0)
                                         @foreach($productos as $producto)
                                        <tbody>
                                        <td>{{$producto->id_producto}}</td>
@@ -56,15 +59,19 @@
                                        <td>{{$producto->punto_m_bodega}}</td>
                                        <td><img src="img_usuario/{{$producto->archivo}}" alt="" style="width:200px; height:100px;"></td>
                                        <td>
+                                       @if($producto->deleted_at =="")
                                         {!!link_to_route('producto.edit', $title = 'Editar', $parameters = $producto->id_producto, $attributes = ['class'=>'btn btn-success btn-flat btn-addon m-b-10 m-l-5'])!!} 
                                     
                                         {!!Form::open(['route' => ['producto.destroy',$producto->id_producto],'method'=>'DELETE'])!!} 
                                         {!!Form::submit('Eliminar',['class'=>'btn btn-inverse waves-effect waves-light'  ])!!}
                                         {!!Form::close()!!}
-
+                                        @else
+                                        {!!link_to_route('producto.show', $title = 'Restaurar', $parameters =  $producto->id_producto, $attributes = ['class'=>'btn btn-info btn-flat btn-addon m-b-10 m-l-5'] )!!}
+                                        @endif
                                        </td>
                                         </tbody>
                                        @endforeach
+                                       @endif
                                    </table>
                                 </div>
                                </div>

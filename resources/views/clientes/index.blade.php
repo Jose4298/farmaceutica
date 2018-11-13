@@ -32,20 +32,23 @@
                                                 <th>Telefono</th> 
                                                 <th>Correo</th>
                                                 <th>RFC</th>  
+                                                <th>Operaciones</th> 
                                         </tr>    
                                     </thead>
                                     <tfoot>
                                             <tr>
                                             <th>#</th>
-                                            <th>#</th>
+                                        
                                                 <th>Nombre</th>
                                                 <th>Apellido Paterno</th>
                                                 <th>Apellido Materno</th>
                                                 <th>Telefono</th> 
                                                 <th>Correo</th>
                                                 <th>RFC</th> 
+                                                <th>Operaciones</th> 
                                             </tr>
                                     </tfoot>
+                                    @if(count($clientes) > 0)
                                         @foreach($clientes as $cliente)
                                        <tbody>
                                        <td>{{$cliente->id_cliente}}</td>
@@ -58,15 +61,21 @@
                                        <td>{{$cliente->RFC}}</td>
                                       
                                        <td>
+                                       @if($cliente->deleted_at =="")
                                         {!!link_to_route('cliente.edit', $title = 'Editar', $parameters = $cliente->id_cliente, $attributes = ['class'=>'btn btn-success btn-flat btn-addon m-b-10 m-l-5'])!!} 
                                     
                                         {!!Form::open(['route' => ['cliente.destroy',$cliente->id_cliente],'method'=>'DELETE'])!!} 
                                         {!!Form::submit('Eliminar',['class'=>'btn btn-inverse waves-effect waves-light'  ])!!}
                                         {!!Form::close()!!}
 
+                                        @else
+                                        {!!link_to_route('cliente.show', $title = 'Restaurar', $parameters =  $cliente->id_cliente, $attributes = ['class'=>'btn btn-info btn-flat btn-addon m-b-10 m-l-5'] )!!} 
+                                        @endif
+                                       
                                        </td>
                                         </tbody>
                                        @endforeach
+                                       @endif
                                    </table>
                                 </div>
                                </div>

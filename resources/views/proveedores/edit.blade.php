@@ -3,7 +3,7 @@
 
 {{csrf_field()}}
 
-{!!Form::model($proveedores,['route' => ['proveedor.update',$proveedores->id_proveedores],'method'=>'PUT'])!!}
+{!!Form::model($proveedores,['route' => ['proveedores.update',$proveedores->id_proveedores],'method'=>'PUT'])!!}
 
 
 
@@ -16,7 +16,7 @@
 
         <div class="form-group">
         <div class="form-group row ">
-                <label class="col-lg-4 col-form-label" >ID <span class="text-danger">*</span></label>
+                <label class="col-sm-2 control-label" >ID <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-addon"><i class="ti-location-pin"></i></div>
                 {!!Form::text('id_proveedores',null,['class'=>'form-control', 'placeholder'=>'Colocar el Nombre del cliente.', 'readonly' => 'readonly'])!!}

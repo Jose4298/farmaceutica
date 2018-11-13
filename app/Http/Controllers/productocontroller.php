@@ -14,8 +14,12 @@ use Farmaceutic\Http\Requests\ProductoRequestCreate;
 class productocontroller extends Controller
 {
     public function index(){
-    $productos = producto::all();
-    return view('producto.index',compact('productos'));
+   
+        $productos = producto ::withTrashed()
+        ->get();
+        return view('producto.index')
+        ->with('productos',$productos);
+
 }
 
 public function create()
@@ -72,14 +76,18 @@ if($archivo != '' || $archivo != null ){
         }
 }
 
-public function show($id_empleado)
+public function show($id_producto)
 {
-   
+    producto::withTrashed()
+    ->where('id_producto',$id_producto)
+    ->restore();
+    Session::flash('message','Producto restaurado correctamente');
+    return Redirect::to('/producto');
 }
-public function edit($id_empleado)
+public function edit($id_producto)
 {
-//  $estado = estados::find($id_estado);
- // return view('estado.edit', ['estado'=>$estado]);
+ $producto = producto::find($id_producto);
+ return view('producto.edit', ['producto'=>$producto]);
 }
 public function update($id_municipio, Request $request )
 {
@@ -123,14 +131,14 @@ public function update($id_municipio, Request $request )
     $empleado->archivo = 'sinfoto.jpg';
     $empleado->save();
     Session::flash('message','Empleado modificado exitosamente sin foto');
- return  Redirect::to('/empleado'); // esta linea solo redireccionara un mensaje de realizado corrctamente
+ return  Redirect::to('/empleado'); 
 }
 }
-public function destroy($id_empleado)
+public function destroy($id_producto)
 {
-  //estados::destroy($id_estado);
+  producto::destroy($id_producto);
   
- // Session::flash('message','Estado eliminado correctamente');
-  //return Redirect::to('/estado');
+  Session::flash('message','Producto eliminado correctamente');
+  return Redirect::to('/producto');
 }
 }

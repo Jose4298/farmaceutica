@@ -34,7 +34,7 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Estado</th>
-                                              
+                                                <th>operaciones</th>  
                                             </tr>
                                     </tfoot>
                                     @if(count($estados) > 0)

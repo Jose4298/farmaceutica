@@ -14,22 +14,22 @@
         <h4 class="page-header">Ingresar un nuevo cliente.</h4>
         <form class="form p-t-20">
 
-     <div class="form-group">
+    <div class="form-group">
         <div class="form-group row ">
-                <label class="col-lg-4 col-form-label" >ID <span class="text-danger">*</span></label>
+                <label class="col-sm-2 control-label" >ID. <span class="text-danger">*</span></label>
                 <div class="input-group">
-                <div class="input-group-addon"><i class="ti-location-pin"></i></div>
-                {!!Form::text('id_cliente',null,['class'=>'form-control', 'placeholder'=>'Colocar el Nombre del cliente.', 'readonly' => 'readonly'])!!}
+                <div class="input-group-addon"><i class="ti-locationpin"></i></div>
+                {!!Form::text('id_cliente',null,['class'=>'form-control', 'placeholder'=>'Colocar el Nombre del Estado.', 'readonly' => 'readonly'])!!}
             </div>
             </div>
-
+            
             <div class="form-group row ">
                 <label class="col-sm-2 control-label" >Nombre <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-addon"><i class="ti-location-pin"></i></div>
                 {!!Form::text('nombre',null,['class'=>'form-control', 'placeholder'=>'Coloca el Nombre del cliente.'])!!}
                 
-            </div> <!-- ESTA PARTE SIRVE PARA LA VALIDACIÓN -->
+            </div> 
                 @if($errors->first('nombre')) 
                 <i> {{ $errors->first('nombre') }} </i> 
                 @endif	<br>

@@ -14,8 +14,10 @@ class municipiocontroller extends Controller
 {
     public function index()
     {
-        $municipios = municipio::all();
-        return view('municipio.index',compact('municipios'));
+        $municipios = municipio ::withTrashed()
+        ->get();
+        return view('municipio.index')
+        ->with('municipio',$municipios);
     }
     
     public function create()
@@ -39,26 +41,34 @@ class municipiocontroller extends Controller
     }
    public function show($id_municipio)
    {
-       
+    municipio::withTrashed()
+    ->where('id_municipio',$id_municipio)
+    ->restore();
+
+    Session::flash('message','Municipio restaurado correctamente');
+    return Redirect::to('/municipio');
    }
     public function edit($id_municipio)
     {
-    //  $estado = estados::find($id_estado);
-     // return view('estado.edit', ['estado'=>$estado]);
+        $municipios = municipio::find($id_municipio);
+        $estados = estado::all();
+       return view('municipio.edit')
+       ->with('municipios',$municipios)
+       ->with('estados',$estados);
     }
     public function update($id_municipio, Request $request )
     {
-       // $estado = estados::find($id_estado);
-        //$estado->fill($request->all());
-       // $estado->save();
-        //Session::flash('message','Estado editado correctamente');
-        //return  Redirect::to('/estado');
+       $municipios = municipio::find($id_municipio);
+       $municipios->fill($request->all());
+       $municipios->save();
+       Session::flash('message','Municipio editado correctamente');
+       return  Redirect::to('/municipio');
     }
    public function destroy($id_municipio)
     {
-      //estados::destroy($id_estado);
+        municipio::destroy($id_municipio);
       
-     // Session::flash('message','Estado eliminado correctamente');
-      //return Redirect::to('/estado');
+     Session::flash('message','Municipio eliminado correctamente');
+      return Redirect::to('/municipio');
     }
 }

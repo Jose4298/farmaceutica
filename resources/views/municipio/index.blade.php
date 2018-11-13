@@ -34,23 +34,29 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Municipio</th>
+                                                <th>operaciones</th>  
                                               
                                             </tr>
                                     </tfoot>
-                                        @foreach($municipios as $municipio)
+                                    @if(count($municipio) > 0)
+                                        @foreach($municipio as $municipio)
                                         <tbody>
                                         <td>{{$municipio->id_municipio}}</td>
                                        <td>{{$municipio->nombre}}</td>
                                        <td>
+                                       @if($municipio->deleted_at =="")
                                         {!!link_to_route('municipio.edit', $title = 'Editar', $parameters = $municipio->id_municipio, $attributes = ['class'=>'btn btn-success btn-flat btn-addon m-b-10 m-l-5'])!!} 
                                     
                                         {!!Form::open(['route' => ['municipio.destroy',$municipio->id_municipio],'method'=>'DELETE'])!!} 
                                         {!!Form::submit('Eliminar',['class'=>'btn btn-inverse waves-effect waves-light'  ])!!}
                                         {!!Form::close()!!}
-
+                                        @else
+                                        {!!link_to_route('municipio.show', $title = 'Restaurar', $parameters =  $municipio->id_municipio, $attributes = ['class'=>'btn btn-info btn-flat btn-addon m-b-10 m-l-5'] )!!} 
+                                        @endif
                                        </td>
                                         </tbody>
                                        @endforeach
+                                       @endif
                                    </table>
                                 </div>
                                </div>

@@ -22,6 +22,8 @@
                 {!!Form::text('id_estado',null,['class'=>'form-control', 'placeholder'=>'Colocar el Nombre del Estado.', 'readonly' => 'readonly'])!!}
             </div>
             </div>
+
+            
             <div class="form-group row ">
                 <label class="col-lg-4 col-form-label" >Nombre <span class="text-danger">*</span></label>
                 <div class="input-group">

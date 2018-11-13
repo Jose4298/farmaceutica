@@ -15,8 +15,12 @@ class clienteController extends Controller
    
     public function index()
     {
-        $clientes = Clientes::all();
-        return view('clientes.index',compact('clientes'));
+        $clientes = Clientes ::withTrashed()
+        ->get();
+        return view('clientes.index')
+        ->with('clientes',$clientes);
+
+
     }
     
     public function create()
@@ -26,10 +30,10 @@ class clienteController extends Controller
         $municipios = municipio::all();
         return view("clientes.create",compact('clientes','municipios','descuentos'));
     }
-    // no se te olvide crear el request y colocarlo en true
+   
     public function store(ClienteCreateRequest $request)
     {
-        // estado es el nombre del modelo
+       
       Clientes::create([
         'id_cliente' => $request['id_cliente'],
         'nombre' => $request['nombre'], 
@@ -47,11 +51,17 @@ class clienteController extends Controller
          ]);
         Session::flash('message','Cliente editado correctamente');
         return  Redirect::to('/cliente');
-        // redireccionando al carpeta y / significa index
+        
     }
    public function show($id_cliente)
    {
-       
+    Clientes::withTrashed()
+    ->where('id_cliente',$id_cliente)
+    ->restore();
+
+
+    Session::flash('message','Cliente restaurado correctamente');
+    return Redirect::to('/cliente');
    }
     public function edit($id_cliente)
     {
@@ -69,14 +79,14 @@ class clienteController extends Controller
        $cliente = Clientes::find($id_cliente);
         $cliente->fill($request->all());
        $cliente->save();
-    Session::flash('message','Estado editado correctamente');
-    return  Redirect::to('/cliente');
+       Session::flash('message','Cliente editado correctamente');
+        return  Redirect::to('/cliente');
     }
    public function destroy($id_cliente)
     {
-      //estados::destroy($id_estado);
+      Clientes::destroy($id_cliente);
       
-     // Session::flash('message','Estado eliminado correctamente');
-      //return Redirect::to('/estado');
+     Session::flash('message','Cliente eliminado correctamente');
+      return Redirect::to('/cliente');
     }
 }

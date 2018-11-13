@@ -31,19 +31,22 @@
                                                 <th>Telefono</th> 
                                                 <th>Correo</th>
                                                 <th>RFC</th>  
+                                                <th>Operaciones</th> 
                                         </tr>    
                                     </thead>
                                     <tfoot>
                                             <tr>
-                                            <th>#</th>
-                                            <th>#</th>
+                                                <th>#</th>
                                                 <th>Nombre</th>
                                                 <th>RFC</th>  
                                                 <th>Telefono</th> 
                                                 <th>Correo</th>
+                                                <th>RFC</th> 
+                                                <th>Operaciones</th> 
                                                 
                                             </tr>
                                     </tfoot>
+                                    @if(count($proveedores) > 0) 
                                         @foreach($proveedores as $proveedor)
                                        <tbody>
                                        <td>{{$proveedor->id_proveedores}}</td>
@@ -55,15 +58,19 @@
                                        
                                       
                                        <td>
+                                       @if($proveedor->deleted_at =="")
                                         {!!link_to_route('proveedor.edit', $title = 'Editar', $parameters = $proveedor->id_proveedores, $attributes = ['class'=>'btn btn-success btn-flat btn-addon m-b-10 m-l-5'])!!} 
                                     
-                                        {!!Form::open(['route' => ['proveedor.destroy',$proveedor->id_proveedor],'method'=>'DELETE'])!!} 
+                                        {!!Form::open(['route' => ['proveedor.destroy',$proveedor->id_proveedores],'method'=>'DELETE'])!!} 
                                         {!!Form::submit('Eliminar',['class'=>'btn btn-inverse waves-effect waves-light'  ])!!}
                                         {!!Form::close()!!}
-
+                                        @else
+                                        {!!link_to_route('proveedor.show', $title = 'Restaurar', $parameters =  $proveedor->id_proveedores, $attributes = ['class'=>'btn btn-info btn-flat btn-addon m-b-10 m-l-5'] )!!}
+                                        @endif
                                        </td>
                                         </tbody>
                                        @endforeach
+                                       @endif
                                    </table>
                                 </div>
                                </div>
