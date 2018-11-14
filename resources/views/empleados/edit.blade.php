@@ -16,7 +16,7 @@
 
         <div class="form-group">
         <div class="form-group row ">
-                <label class="col-lg-4 col-form-label" >ID <span class="text-danger">*</span></label>
+                <label class="col-sm-2 control-label" >ID <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-addon"><i class="ti-location-pin"></i></div>
                 {!!Form::text('id_empleado',null,['class'=>'form-control', 'placeholder'=>'Colocar el Nombre del empleado.', 'readonly' => 'readonly'])!!}

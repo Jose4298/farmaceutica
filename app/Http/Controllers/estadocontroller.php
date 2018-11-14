@@ -58,7 +58,7 @@ class estadocontroller extends Controller
     $estado = estado::find($id_estado);
     return view('estado.edit', ['estado'=>$estado]);
     }
-    public function update($id_estado, Request $request )
+    public function update($id_estado, EstadoRequestCreate $request )
     {
         $estado = estado::find($id_estado);
         $estado->fill($request->all());

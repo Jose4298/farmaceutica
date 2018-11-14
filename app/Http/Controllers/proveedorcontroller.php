@@ -69,7 +69,7 @@ class proveedorcontroller extends Controller
        ->with('municipios',$municipios);
        
     }
-    public function update($id_proveedores, Request $request )
+    public function update($id_proveedores, ProveedorCreateRequest $request )
     {
         $proveedor = proveedor::find($id_proveedores);
         $proveedor->fill($request->all());

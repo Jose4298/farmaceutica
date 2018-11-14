@@ -54,7 +54,7 @@ class seccionController extends Controller
       $secciones = seccion::find($id_seccion);
      return view('seccion.edit', ['seccion'=>$secciones]);
     }
-    public function update($id_seccion, Request $request )
+    public function update($id_seccion, SeccionCreateRequest $request )
     {
         $secciones = seccion::find($id_seccion);
         $secciones->fill($request->all());

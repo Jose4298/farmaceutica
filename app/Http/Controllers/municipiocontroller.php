@@ -56,7 +56,7 @@ class municipiocontroller extends Controller
        ->with('municipios',$municipios)
        ->with('estados',$estados);
     }
-    public function update($id_municipio, Request $request )
+    public function update($id_municipio, MunicipioCreateRequest $request )
     {
        $municipios = municipio::find($id_municipio);
        $municipios->fill($request->all());

@@ -95,7 +95,7 @@ public function edit($id_producto)
  ->with('secciones',$secciones);
 
 }
-public function update($id_producto, Request $request )
+public function update($id_producto, ProductoRequestCreate $request )
 {
     $archivo         = $request->file('img');
     if($archivo != '' || $archivo != null ){

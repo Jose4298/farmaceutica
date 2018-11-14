@@ -74,7 +74,7 @@ class clienteController extends Controller
    ->with('descuentos',$descuentos)
    ->with('municipios',$municipios);
     }
-    public function update($id_cliente, Request $request )
+    public function update($id_cliente, ClienteCreateRequest $request )
     {
        $cliente = Clientes::find($id_cliente);
         $cliente->fill($request->all());

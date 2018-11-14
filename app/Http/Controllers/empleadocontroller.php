@@ -99,7 +99,7 @@ class empleadocontroller extends Controller
        ->with('empleados',$empleados)
        ->with('municipios',$municipios);
     }
-    public function update($id_empleado, Request $request )
+    public function update($id_empleado, EmpleadoCreateRequest $request )
     {
         $archivo         = $request->file('img');
         if($archivo != '' || $archivo != null ){
