@@ -3,7 +3,7 @@
 
 {{csrf_field()}}
 
-{!!Form::model($proveedores,['route' => ['proveedores.update',$proveedores->id_proveedores],'method'=>'PUT'])!!}
+{!!Form::model($proveedores,['route' => ['proveedor.update',$proveedores->id_proveedores],'method'=>'PUT'])!!}
 
 
 

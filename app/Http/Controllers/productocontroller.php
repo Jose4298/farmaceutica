@@ -86,10 +86,16 @@ public function show($id_producto)
 }
 public function edit($id_producto)
 {
+    
+
  $producto = producto::find($id_producto);
- return view('producto.edit', ['producto'=>$producto]);
+ $secciones = seccion::all();
+ return view('producto.edit')
+ ->with('producto',$producto)
+ ->with('secciones',$secciones);
+
 }
-public function update($id_municipio, Request $request )
+public function update($id_producto, Request $request )
 {
     $archivo         = $request->file('img');
     if($archivo != '' || $archivo != null ){
@@ -98,40 +104,30 @@ public function update($id_municipio, Request $request )
     $r1              = Storage::disk('archivos')->put($nombre_original, \File::get($archivo));
     $ruta            = public_path('archivos') . "/" . $nombre_original;
 
-    $empleado = empleado::find($id);
-    $empleado->nombre = $request->nombre;
-    $empleado->apellido_p = $request->apellido_p;
-    $empleado->apellido_m = $request->apellido_m;
-    $empleado->calle = $request->calle;
-    $empleado->colonia = $request->colonia;
-    $empleado->numero = $request->numero;
-    $empleado->codigo_postal = $request->codigo_postalp;
-    $empleado->telefono = $request->telefono;
-    $empleado->email = $request->email;
-    $empleado->RFC = $request->RFC;
-    $empleado->id_municipios = $request->id_municipios;
-    $empleado->archivo = $nombre_original;
-    $empleado->save();
+    $productos = producto::find($id_producto);
+    $productos->nombre = $request->nombre;
+    $productos->precio = $request->precio;
+    $productos->max_bodega = $request->max_bodega;
+    $productos->min_bodega = $request->min_bodega;
+    $productos->punto_m_bodega = $request->punto_m_bodega;
+    $productos->archivo = $nombre_original;
+    $productos->id_seccion = $request->id_seccion;
+    $productos->save();
     Session::flash('message','Empleado modificado exitosamente');
- return  Redirect::to('/empleado'); // esta linea solo redireccionara un mensaje de realizado corrctamente
+ return  Redirect::to('/producto'); // esta linea solo redireccionara un mensaje de realizado corrctamente
 }else{
 
-    $empleado = empleado::find($id);
-    $empleado->nombre = $request->nombre;
-    $empleado->apellido_p = $request->apellido_p;
-    $empleado->apellido_m = $request->apellido_m;
-    $empleado->calle = $request->calle;
-    $empleado->colonia = $request->colonia;
-    $empleado->numero = $request->numero;
-    $empleado->codigo_postal = $request->codigo_postalp;
-    $empleado->telefono = $request->telefono;
-    $empleado->email = $request->email;
-    $empleado->RFC = $request->RFC;
-    $empleado->id_municipios = $request->id_municipios;
-    $empleado->archivo = 'sinfoto.jpg';
-    $empleado->save();
+    $productos= producto::find($id_producto);
+    $productos->nombre = $request->nombre;
+    $productos->precio = $request->precio;
+    $productos->max_bodega = $request->max_bodega;
+    $productos->min_bodega = $request->min_bodega;
+    $productos->punto_m_bodega = $request->punto_m_bodega;
+    $productos->archivo = 'sinfoto.jpg';
+    $productos->id_seccion = $request->id_seccion;
+    $productos->save();
     Session::flash('message','Empleado modificado exitosamente sin foto');
- return  Redirect::to('/empleado'); 
+ return  Redirect::to('/producto'); 
 }
 }
 public function destroy($id_producto)

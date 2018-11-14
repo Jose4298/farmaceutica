@@ -3,7 +3,7 @@
 
 {{csrf_field()}}
 
-{!!Form::model($producto,['route' => ['producto.update',$producto->id_producto],'method'=>'PUT'])!!}
+{!!Form::model($producto,['route' => ['producto.update',$producto->id_producto],'method'=>'PUT','enctype' => 'multipart/form-data','files'=>'true'])!!}
 
 
 
@@ -97,7 +97,6 @@
         @endif	<br>
         </div>
         
-        
         <div class="form-group has-warning has-feedback">
             <label class="col-sm-2 control-label">Seccion</label>
             <div class="col-sm-4">
@@ -113,7 +112,7 @@
      </form>
      <br>
      <br>
-     {!!Form::submit('Restaurar',[' class'=>'btn btn-success waves-effect waves-light m-r-10'])!!}
+     {!!Form::submit('Actualizar',[' class'=>'btn btn-success waves-effect waves-light m-r-10'])!!}
    
     </div>
     </div>

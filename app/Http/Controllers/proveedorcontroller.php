@@ -28,10 +28,10 @@ class proveedorcontroller extends Controller
         $municipios = municipio::all();
         return view("proveedores.create",compact('proveedor','municipios'));
     }
-    // no se te olvide crear el request y colocarlo en true
+    
     public function store(ProveedorCreateRequest $request)
     {
-        // estado es el nombre del modelo
+       
       proveedor::create([
         'id_proveedores' => $request['id_proveedores'],
         'nombre' => $request['nombre'], 
@@ -47,7 +47,7 @@ class proveedorcontroller extends Controller
          ]);
         Session::flash('message','Proveedor editado correctamente');
         return  Redirect::to('/proveedor');
-        // redireccionando al carpeta y / significa index
+        
     }
    public function show($id_proveedores)
    {

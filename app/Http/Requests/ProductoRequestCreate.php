@@ -25,7 +25,7 @@ class ProductoRequestCreate extends Request
     {
         return [
             'nombre' => 'required|regex:/^[A-Z,,a-z, ,ñ,á,é,í,ó,ú]+$/',
-            'precio' => 'required|regex:/^[0-9]+[.][0-9]{2}$/',
+            'precio' => 'required',
             'max_bodega' => 'required',
             'min_bodega' => 'required',
             'punto_m_bodega' => 'required',
