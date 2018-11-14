@@ -3,7 +3,7 @@
 
 {{csrf_field()}}
 
-{!!Form::model($empleados,['route' => ['empleado.update',$empleados->id_empleado],'method'=>'PUT'])!!}
+{!!Form::model($empleados,['route' => ['empleado.update',$empleados->id_empleado],'method'=>'PUT','enctype' => 'multipart/form-data','files'=>'true'])!!}
 
 
 

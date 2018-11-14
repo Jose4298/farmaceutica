@@ -50,6 +50,7 @@
                                                 <th>Operaciones<th> 
                                             </tr>
                                     </tfoot>
+                                    @if(count($empleados) > 0)
                                         @foreach($empleados as $empleado)
                                        <tbody>
                                        <td>{{$empleado->id_empleado}}</td>
@@ -63,15 +64,20 @@
                                        <td><img src="img_usuario/{{$empleado->archivo}}" alt="" style="width:200px; height:100px;"></td>
                                       
                                        <td>
+                                       @if($empleado->deleted_at =="")
                                         {!!link_to_route('empleado.edit', $title = 'Editar', $parameters = $empleado->id_empleado, $attributes = ['class'=>'btn btn-success btn-flat btn-addon m-b-10 m-l-5'])!!} 
                                     
                                         {!!Form::open(['route' => ['empleado.destroy',$empleado->id_empleado],'method'=>'DELETE'])!!} 
                                         {!!Form::submit('Eliminar',['class'=>'btn btn-inverse waves-effect waves-light'  ])!!}
                                         {!!Form::close()!!}
-
+                                   
+                                        @else
+                                        {!!link_to_route('empleado.show', $title = 'Restaurar', $parameters =  $empleado->id_empleado, $attributes = ['class'=>'btn btn-info btn-flat btn-addon m-b-10 m-l-5'] )!!} 
+                                        @endif
                                        </td>
                                         </tbody>
                                        @endforeach
+                                       @endif
                                    </table>
                                 </div>
                                </div>

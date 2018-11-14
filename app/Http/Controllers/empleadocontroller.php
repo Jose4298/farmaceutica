@@ -15,8 +15,11 @@ class empleadocontroller extends Controller
 {
     public function index()
     {
-        $empleados = empleado::all();
-        return view('empleados.index',compact('empleados'));
+        $empleados = empleado ::withTrashed()
+        ->get();
+        return view('empleados.index')
+        ->with('empleados',$empleados);
+
     }
     
     public function create()
@@ -79,7 +82,13 @@ class empleadocontroller extends Controller
 
    public function show($id_empleado)
    {
-       
+    empleado::withTrashed()
+    ->where('id_empleado',$id_empleado)
+    ->restore();
+
+
+    Session::flash('message','Empleado restaurado correctamente');
+    return Redirect::to('/empleado');
    }
     public function edit($id_empleado)
     {
@@ -98,48 +107,48 @@ class empleadocontroller extends Controller
         $extension       = $request->file('img')->getClientOriginalExtension();
         $r1              = Storage::disk('archivos')->put($nombre_original, \File::get($archivo));
         $ruta            = public_path('archivos') . "/" . $nombre_original;
-        $personales = personales::find($id_empleado);
-        $personales->nombre = $request->nombre;
-        $personales->apellido_p = $request->apellido_p;
-        $personales->apellido_m = $request->apellido_m;
-        
-        $personales->calle = $request->calle;
-        $personales->colonia = $request->colonia;
-        $personales->numero = $request->numero;
-        $personales->codigo_postal = $request->codigo_postal;
-        $personales->telefono = $request->telefono;
-        
-        $personales->telefono = $request->telefono;
-        $personales->id_municipios = $request->id_municipios;
-        $personales->id_puesto = $request->id_puesto;
-        $personales->archivo = $nombre_original;
-        $personales->save();
-        Session::flash('message','Personal modificado exitosamente');
-     return  Redirect::to('/personal'); // esta linea solo redireccionara un mensaje de realizado corrctamente
+    
+        $empleados = empleado::find($id_empleado);
+        $empleados->nombre = $request->nombre;
+        $empleados->apellido_p = $request->apellido_p;
+        $empleados->apellido_m = $request->apellido_m;
+        $empleados->calle = $request->calle;
+        $empleados->colonia = $request->colonia;
+        $empleados->numero = $request->numero;
+        $empleados->codigo_postal = $request->codigo_postal;
+        $empleados->telefono = $request->telefono;
+        $empleados->email = $request->email;
+        $empleados->RFC = $request->RFC;
+        $empleados->id_municipio = $request->id_municipio;
+        $empleados->archivo = $nombre_original;
+        $empleados->save();
+        Session::flash('message','Empleado modificado exitosamente');
+     return  Redirect::to('/empleado'); // esta linea solo redireccionara un mensaje de realizado corrctamente
     }else{
-        $personales = personales::find($id_personal);
-        $personales->nombre = $request->nombre;
-        $personales->ap_pat = $request->ap_pat;
-        $personales->ap_mat = $request->ap_mat;
-        $personales->genero = $request->genero;
-        $personales->calle = $request->calle;
-        $personales->colonia = $request->colonia;
-        $personales->cp = $request->cp;
-        $personales->correo = $request->correo;
-        $personales->telefono = $request->telefono;
-        $personales->id_municipios = $request->id_municipios;
-        $personales->id_puesto = $request->id_puesto;
-        $personales->archivo = 'sinfoto.jpg';
-        $personales->save();
+    
+        $empleados = empleado::find($id_empleado);
+        $empleados->nombre = $request->nombre;
+        $empleados->apellido_p = $request->apellido_p;
+        $empleados->apellido_m = $request->apellido_m;
+        $empleados->calle = $request->calle;
+        $empleados->colonia = $request->colonia;
+        $empleados->numero = $request->numero;
+        $empleados->codigo_postal = $request->codigo_postal;
+        $empleados->telefono = $request->telefono;
+        $empleados->email = $request->email;
+        $empleados->RFC = $request->RFC;
+        $empleados->id_municipio = $request->id_municipio;
+        $productos->archivo = 'sinfoto.jpg';
+        $productos->save();
         Session::flash('message','Empleado modificado exitosamente sin foto');
-     return  Redirect::to('/personal'); // esta linea solo redireccionara un mensaje de realizado correctamente
+     return  Redirect::to('/empleado'); 
     }
     }
    public function destroy($id_empleado)
-    {
-      //estados::destroy($id_estado);
-      
-     // Session::flash('message','Estado eliminado correctamente');
-      //return Redirect::to('/estado');
-    }
+   {
+    empleado::destroy($id_empleado);
+    
+   Session::flash('message','Empleado eliminado correctamente');
+    return Redirect::to('/empleado');
+  }
 }

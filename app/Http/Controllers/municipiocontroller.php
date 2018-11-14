@@ -26,10 +26,10 @@ class municipiocontroller extends Controller
         $municipios = municipio::all();
         return view("municipio.create",compact('estados','municipios'));
     }
-    // no se te olvide crear el request y colocarlo en true
+   
     public function store(MunicipioCreateRequest $request)
     {
-        // estado es el nombre del modelo
+ 
       municipio::create([
         'id_municipio' => $request['id_municipio'],
         'nombre' => $request['nombre'], 
@@ -37,7 +37,7 @@ class municipiocontroller extends Controller
          ]);
         Session::flash('message','Municipio editado correctamente');
         return  Redirect::to('/municipio');
-        // redireccionando al carpeta y / significa index
+       
     }
    public function show($id_municipio)
    {
