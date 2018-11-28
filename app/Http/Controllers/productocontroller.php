@@ -87,12 +87,23 @@ public function show($id_producto)
 public function edit($id_producto)
 {
     
+    $producto = producto::where('id_producto','=',$id_producto)
+    ->get();
+    
+    $id_seccion = $producto[0]->id_seccion;
+    
+    $secciones = seccion::where('id_seccion','=',$id_seccion)
+    ->get();
+    $demassecciones = seccion::where('id_seccion','!=',$id_seccion)
+                               ->get();
+    
+    
+    return view('producto.edit')
+                             ->with('producto',$producto[0])
+                             ->with('id_seccion',$id_seccion)
+                             ->with('secciones',$secciones[0]->nombre)
+                             ->with('demassecciones',$demassecciones);
 
- $producto = producto::find($id_producto);
- $secciones = seccion::all();
- return view('producto.edit')
- ->with('producto',$producto)
- ->with('secciones',$secciones);
 
 }
 public function update($id_producto, ProductoRequestCreate $request )
@@ -123,7 +134,11 @@ public function update($id_producto, ProductoRequestCreate $request )
     $productos->max_bodega = $request->max_bodega;
     $productos->min_bodega = $request->min_bodega;
     $productos->punto_m_bodega = $request->punto_m_bodega;
-    $productos->archivo = 'sinfoto.jpg';
+  
+    if($archivo!='')
+    {
+        $productos->img = $nombre_original;
+    }
     $productos->id_seccion = $request->id_seccion;
     $productos->save();
     Session::flash('message','Empleado modificado exitosamente sin foto');

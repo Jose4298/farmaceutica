@@ -24,7 +24,7 @@ class EstadoRequestCreate extends Request
     public function rules()
     {
         return [
-          'nombre' => 'required|alpha|unique:estados',
+          'nombre' => 'required|alpha',
          
 
 

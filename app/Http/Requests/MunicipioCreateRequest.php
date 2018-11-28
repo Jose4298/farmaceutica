@@ -24,7 +24,7 @@ class MunicipioCreateRequest extends Request
     public function rules()
     {
         return [
-            'nombre' => 'required|alpha|unique:municipios',
+            'nombre' => 'required|alpha',
         ];
     }
 }

@@ -146,8 +146,9 @@
             <label class="col-sm-2 control-label">Municipio</label>
             <div class="col-sm-4">
                 <select class="form-control custom-select" name='id_municipio'>
-                    @foreach ($municipios as $municipio)
-                <option value="{{$municipio['id_municipio']}}">{{$municipio['nombre']}}
+                  <option value ='{{$id_municipio}}'>{{$municipios}}</option>
+                    @foreach ($demasmunicipios as $municipio)
+                <option value='{{$municipio->id_municipio}}'>{{$municipio->nombre}}
  
                         </option>
                     @endforeach

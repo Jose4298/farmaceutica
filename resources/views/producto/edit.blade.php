@@ -103,8 +103,9 @@
             <label class="col-sm-2 control-label">Seccion</label>
             <div class="col-sm-4">
                 <select class="form-control custom-select" name='id_seccion'>
-                    @foreach ($secciones as $seccion)
-                <option value="{{$seccion['id_seccion']}}">{{$seccion['nombre']}}
+                   <option value ='{{$id_seccion}}'>{{$secciones}}</option>
+                    @foreach ($demassecciones as $seccion)
+                <option value='{{$seccion->id_seccion}}'>{{$seccion->nombre}}
 
                         </option>
                     @endforeach

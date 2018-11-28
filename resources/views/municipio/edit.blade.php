@@ -39,8 +39,9 @@
                 <label class="col-lg-4 col-form-label" >Estado. <span class="text-danger">*</span></label>
             <div class="col-sm-12">
                 <select class="form-control custom-select" name='id_estado'>
-                    @foreach ($estados as $estado)
-                <option value="{{$estado['id_estado']}}">{{$estado['nombre']}}
+                   <option value ='{{$id_estado}}'>{{$estados}} </option>
+                    @foreach ($demasestados as $estado)
+                <option value='{{$estado->id_estado}}'>{{$estado->nombre}}
 
                         </option>
                     @endforeach

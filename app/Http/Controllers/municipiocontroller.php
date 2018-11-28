@@ -50,11 +50,31 @@ class municipiocontroller extends Controller
    }
     public function edit($id_municipio)
     {
-        $municipios = municipio::find($id_municipio);
-        $estados = estado::all();
-       return view('municipio.edit')
-       ->with('municipios',$municipios)
-       ->with('estados',$estados);
+
+        $municipios = municipio::where('id_municipio','=',$id_municipio)
+        ->get();
+		
+		$id_estado = $municipios[0]->id_estado;
+		
+		$estados = estado::where('id_estado','=',$id_estado)
+		->get();
+		$demasestados = estado::where('id_estado','!=',$id_estado)
+		                           ->get();
+		
+		
+		return view('municipio.edit')
+	                             ->with('municipios',$municipios[0])
+								 ->with('id_estado',$id_estado)
+								 ->with('estados',$estados[0]->nombre)
+                                 ->with('demasestados',$demasestados);
+
+
+      
+
+
+
+
+
     }
     public function update($id_municipio, MunicipioCreateRequest $request )
     {
