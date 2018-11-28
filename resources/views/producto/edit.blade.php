@@ -87,6 +87,8 @@
         <div class="form-group row ">
             <label class="col-lg-4 col-form-label" >Imagen. <span class="text-danger">*</span></label>
             <div class="input-group">
+            <img src="{{asset('img_usuario/'.$producto->archivo)}}"
+            height=150 width=250>
             <div class="input-group-addon"><i class="ti-user"></i></div>
             <input type="file" id="img" name="img">
         </div>

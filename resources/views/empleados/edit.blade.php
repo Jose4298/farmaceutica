@@ -154,24 +154,28 @@
          
         
         </div>
+
+
+
         <div class="form-group has-warning has-feedback">
             <label class="col-sm-2 control-label">Municipio</label>
             <div class="col-sm-4">
-                <select class="form-control custom-select" name='id_municipio'>
-                    @foreach ($municipios as $municipio)
-                <option value="{{$municipio['id_municipio']}}">{{$municipio['nombre']}}
- 
-
- 
-                        </option>
-                    @endforeach
-                </select>
-            </div>
+                 <select class="form-control " name='id_municipio'>
+                                                <option value = '{{$id_municipio}}'> {{$municipios}}</option>
+                                                @foreach ($demasmunicipios as $municipio)
+                                            <option value='{{$municipio->id_municipio}}'>{{$municipio->nombre}}
+    
+                                                    </option>
+                                                @endforeach
+                                            </select>
         </div>
         </div>
         <div class="form-group row ">
             <label class="col-lg-4 col-form-label" >Imagen. <span class="text-danger">*</span></label>
             <div class="input-group">
+            <img src="{{asset('img_usuario/'.$empleados->archivo)}}"
+            height=150 width=250>
+            <br>
             <div class="input-group-addon"><i class="ti-user"></i></div>
             <input type="file" id="img" name="img">
         </div>

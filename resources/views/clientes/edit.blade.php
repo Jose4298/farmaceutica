@@ -157,11 +157,9 @@
             <label class="col-sm-2 control-label">Descuento</label>
             <div class="col-sm-4">
                 <select class="form-control custom-select" name='id_descuento'>
-                    @foreach ($descuentos as $descuento)
-                <option value="{{$descuento['id_descuento']}}">{{$descuento['porcentaje']}}
- 
-
-
+                <option value = '{{$id_descuento}}'> {{$descuentos}}</option>
+                    @foreach ($demasdescuentos as $descuento)
+                <option value='{{$descuento->id_descuento}}'>{{$descuento->porcentaje}}
                         </option>
                     @endforeach
                 </select>
@@ -170,15 +168,13 @@
         <div class="form-group has-warning has-feedback">
             <label class="col-sm-2 control-label">Municipio</label>
             <div class="col-sm-4">
-                <select class="form-control custom-select" name='id_municipio'>
-                    @foreach ($municipios as $municipio)
-                <option value="{{$municipio['id_municipio']}}">{{$municipio['nombre']}}
- 
-
- 
-                        </option>
-                    @endforeach
-                </select>
+            <select class="form-control" name='id_municipio'>
+                                                <option value = '{{$id_municipio}}'> {{$municipios}}</option>
+                                                @foreach ($demasmunicipios as $municipio)
+                                            <option value='{{$municipio->id_municipio}}'>{{$municipio->nombre}}
+                                                    </option>
+                                                @endforeach
+                                            </select>
             </div>
         </div>
      </form>

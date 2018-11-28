@@ -92,12 +92,27 @@ class empleadocontroller extends Controller
    }
     public function edit($id_empleado)
     {
-        $empleados = empleado::find($id_empleado);
-        $municipios = municipio::all();
-        $empleados = empleado::find($id_empleado);
-        return view('empleados.edit')
-       ->with('empleados',$empleados)
-       ->with('municipios',$municipios);
+        
+        $empleados = empleado::where('id_empleado','=',$id_empleado)
+        ->get();
+		
+		$id_municipio = $empleados[0]->id_municipio;
+		
+		$municipios = municipio::where('id_municipio','=',$id_municipio)
+		->get();
+		$demasmunicipios = municipio::where('id_municipio','!=',$id_municipio)
+		                           ->get();
+		
+		
+		return view('empleados.edit')
+	                             ->with('empleados',$empleados[0])
+								 ->with('id_municipio',$id_municipio)
+								 ->with('municipios',$municipios[0]->nombre)
+                                 ->with('demasmunicipios',$demasmunicipios);
+
+
+
+        
     }
     public function update($id_empleado, EmpleadoCreateRequest $request )
     {
@@ -138,8 +153,11 @@ class empleadocontroller extends Controller
         $empleados->email = $request->email;
         $empleados->RFC = $request->RFC;
         $empleados->id_municipio = $request->id_municipio;
-        $productos->archivo = 'sinfoto.jpg';
-        $productos->save();
+        if($archivo!='')
+			{
+			$empleados->img = $nombre_original;
+			}
+			$empleados->save();
         Session::flash('message','Empleado modificado exitosamente sin foto');
      return  Redirect::to('/empleado'); 
     }

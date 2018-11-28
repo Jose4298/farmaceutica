@@ -65,14 +65,31 @@ class clienteController extends Controller
    }
     public function edit($id_cliente)
     {
-    
-    $clientes = Clientes::find($id_cliente);
-    $descuentos = descuento::all();
-    $municipios = municipio::all();
-   return view('clientes.edit')
-   ->with('clientes',$clientes)
-   ->with('descuentos',$descuentos)
-   ->with('municipios',$municipios);
+        $clientes = Clientes::where('id_cliente','=',$id_cliente)
+        ->get();
+		
+        $id_municipio = $clientes[0]->id_municipio;
+		$id_descuento = $clientes[0]->id_descuento;
+		
+		$descuentos = descuento::where('id_descuento','=',$id_descuento)
+        ->get();
+        $municipios = municipio::where('id_municipio','=',$id_municipio)
+		->get();
+		$demasdescuentos = descuento::where('id_descuento','!=',$id_descuento)
+        ->get();
+        $demasmunicipios = municipio::where('id_municipio','!=',$id_municipio)
+		->get();
+		
+		
+		return view('clientes.edit')
+	                             ->with('clientes',$clientes[0])
+                                 ->with('id_municipio',$id_municipio)
+                                 ->with('id_descuento',$id_descuento)
+                                 ->with('municipios',$municipios[0]->nombre)
+                                 ->with('descuentos',$descuentos[0]->porcentaje)
+                                 ->with('demasdescuentos',$demasdescuentos)
+                                 ->with('demasmunicipios',$demasmunicipios);
+
     }
     public function update($id_cliente, ClienteCreateRequest $request )
     {
